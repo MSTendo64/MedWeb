@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block title %}О клинике - Медицинский центр "Здоровье+"{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <div class="container">
+        <h1>О нашей клинике</h1>
+        <p>Более 15 лет мы заботимся о здоровье наших пациентов</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="about-section">
+            <div class="about-text">
+                <h2>Наша история</h2>
+                <p>Медицинский центр "Здоровье+" был основан в 2005 году группой ведущих специалистов Москвы. Начав с небольшого диагностического центра, мы выросли в многопрофильную клинику, оснащенную современным оборудованием.</p>
+                <p>За годы работы мы помогли более чем 50,000 пациентам и заслужили репутацию надежного медицинского учреждения.</p>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-hospital"></i>
+                    <p>Наша клиника</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section reverse">
+            <div class="about-text">
+                <h2>Наша миссия</h2>
+                <p>Мы стремимся предоставлять медицинские услуги высочайшего качества, сочетая передовые технологии с индивидуальным подходом к каждому пациенту.</p>
+                <ul class="mission-list">
+                    <li><i class="fas fa-check"></i> Качественная диагностика</li>
+                    <li><i class="fas fa-check"></i> Эффективное лечение</li>
+                    <li><i class="fas fa-check"></i> Профилактика заболеваний</li>
+                    <li><i class="fas fa-check"></i> Комфорт пациентов</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-heart"></i>
+                    <p>Забота о пациентах</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <h2>Наши достижения</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number">15+</div>
+                    <div class="achievement-text">Лет успешной работы</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">50+</div>
+                    <div class="achievement-text">Квалифицированных специалистов</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">50 000+</div>
+                    <div class="achievement-text">Довольных пациентов</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number">100+</div>
+                    <div class="achievement-text">Видов медицинских услуг</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="licenses">
+            <h2>Лицензии и сертификаты</h2>
+            <div class="licenses-grid">
+                <div class="license-card">
+                    <i class="fas fa-award"></i>
+                    <h3>Лицензия Минздрава</h3>
+                    <p>Лицензия № ЛО-77-01-012345 от 15.03.2020</p>
+                </div>
+                <div class="license-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>ISO 9001:2015</h3>
+                    <p>Сертификат качества медицинских услуг</p>
+                </div>
+                <div class="license-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Страхование</h3>
+                    <p>Работаем со всеми страховыми компаниями</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.about-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.about-section.reverse {
+    direction: rtl;
+}
+
+.about-section.reverse .about-text {
+    direction: ltr;
+}
+
+.about-text h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.about-image {
+    height: 300px;
+}
+
+.image-placeholder {
+    height: 100%;
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+}
+
+.image-placeholder i {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+.mission-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.mission-list li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mission-list i {
+    color: #2ecc71;
+}
+
+.achievements {
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.achievements h2 {
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 0.5rem;
+}
+
+.licenses {
+    margin: 5rem 0;
+}
+
+.licenses h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.licenses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.license-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.license-card:hover {
+    transform: translateY(-5px);
+}
+
+.license-card i {
+    font-size: 3rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.license-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-section.reverse {
+        direction: ltr;
+    }
+}
+</style>
+{% endblock %}

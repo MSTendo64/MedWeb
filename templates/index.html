@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - Медицинский центр "Здоровье+"{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Добро пожаловать в медицинский центр "Здоровье+"</h1>
+            <p>Современная медицина, опытные врачи и заботливый персонал. Мы заботимся о вашем здоровье с 2005 года.</p>
+            <a href="{{ url_for('appointment') }}" class="btn-primary">Записаться на прием</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Опытные врачи</h3>
+                <p>Все наши специалисты имеют высшую категорию и большой опыт работы.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-hospital"></i>
+                <h3>Современное оборудование</h3>
+                <p>Используем самое современное диагностическое и лечебное оборудование.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>Удобный график</h3>
+                <p>Работаем без выходных, запись на удобное для вас время.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quick-links">
+    <div class="container">
+        <h2>Быстрые ссылки</h2>
+        <div class="links-grid">
+            <a href="{{ url_for('services_page') }}" class="link-card">
+                <i class="fas fa-stethoscope"></i>
+                <h3>Наши услуги</h3>
+                <p>Посмотреть перечень медицинских услуг и цены</p>
+            </a>
+            <a href="{{ url_for('doctors_page') }}" class="link-card">
+                <i class="fas fa-users"></i>
+                <h3>Наши врачи</h3>
+                <p>Познакомиться с нашими специалистами</p>
+            </a>
+            <a href="{{ url_for('contacts') }}" class="link-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Как нас найти</h3>
+                <p>Контакты и схема проезда</p>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

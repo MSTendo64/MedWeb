@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Запись на прием - Медицинский центр "Здоровье+"{% endblock %}
+
+{% block content %}
+<section class="appointment-section">
+    <div class="container">
+        <h1>Запись на прием</h1>
+        <p>Заполните форму ниже, и наш администратор свяжется с вами для подтверждения записи.</p>
+        
+        <form method="POST" class="appointment-form">
+            <div class="form-group">
+                <label for="full_name">ФИО *</label>
+                <input type="text" id="full_name" name="full_name" required placeholder="Иванов Иван Иванович">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Номер телефона *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+            </div>
+            
+            <div class="form-group">
+                <label for="doctor">Выберите врача</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">-- Выберите врача --</option>
+                    {% for doctor in doctors %}
+                    <option value="{{ doctor.id }}">{{ doctor.name }} - {{ doctor.specialization }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="date_time">Дата и время приема *</label>
+                <input type="datetime-local" id="date_time" name="date_time" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Дополнительные пожелания или симптомы</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Опишите причину обращения или особые пожелания..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary">Отправить заявку</button>
+        </form>
+        
+        <div class="appointment-info">
+            <h3>Что происходит после отправки формы?</h3>
+            <ol>
+                <li>Наш администратор получит вашу заявку</li>
+                <li>В течение 30 минут вам перезвонят для подтверждения записи</li>
+                <li>Вы получите SMS-напоминание за день до приема</li>
+                <li>При необходимости можно перенести запись по телефону</li>
+            </ol>
+        </div>
+    </div>
+</section>
+{% endblock %}

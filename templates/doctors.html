@@ -1,0 +1,456 @@
+{% extends "base.html" %}
+
+{% block title %}Врачи - Медицинский центр "Здоровье+"{% endblock %}
+
+{% block content %}
+<section class="doctors-hero">
+    <div class="container">
+        <h1>Наши врачи</h1>
+        <p>Профессионалы с большим опытом и добрым сердцем</p>
+    </div>
+</section>
+
+<section class="doctors-content">
+    <div class="container">
+        <div class="doctors-intro">
+            <h2>Команда специалистов</h2>
+            <p>В нашем медицинском центре работают врачи высшей квалификационной категории, кандидаты и доктора медицинских наук. Мы постоянно совершенствуем свои знания и навыки, чтобы предоставлять вам лучшую медицинскую помощь.</p>
+        </div>
+
+        <div class="specializations">
+            <h3>Основные специализации</h3>
+            <div class="spec-tags">
+                <span class="spec-tag">Терапия</span>
+                <span class="spec-tag">Кардиология</span>
+                <span class="spec-tag">Хирургия</span>
+                <span class="spec-tag">Педиатрия</span>
+                <span class="spec-tag">Неврология</span>
+                <span class="spec-tag">Гастроэнтерология</span>
+                <span class="spec-tag">УЗИ-диагностика</span>
+                <span class="spec-tag">Лабораторная диагностика</span>
+            </div>
+        </div>
+
+        <div class="doctors-grid">
+            {% for doctor in doctors %}
+            <div class="doctor-card">
+                <div class="doctor-photo">
+                    {% if doctor.photo %}
+                    <img src="{{ url_for('static', filename='images/' + doctor.photo) }}" alt="{{ doctor.name }}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><rect width=\"100\" height=\"100\" fill=\"%23f0f0f0\"/><text x=\"50\" y=\"50\" font-family=\"Arial\" font-size=\"14\" text-anchor=\"middle\" dy=\".3em\" fill=\"%23999\">Фото врача</text></svg>'">
+                    {% else %}
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="doctor-info">
+                    <h3>{{ doctor.name }}</h3>
+                    <div class="doctor-specialty">{{ doctor.specialization }}</div>
+                    <div class="doctor-experience">
+                        <i class="fas fa-briefcase"></i>
+                        Стаж: {{ doctor.experience }} лет
+                    </div>
+                    <p class="doctor-description">{{ doctor.description }}</p>
+                    <div class="doctor-actions">
+                        <a href="{{ url_for('appointment') }}?doctor={{ doctor.id }}" class="btn-doctor">
+                            <i class="fas fa-calendar-plus"></i>
+                            Записаться на прием
+                        </a>
+                        <div class="doctor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-text">4.7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="doctor-card">
+                <div class="doctor-photo">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h3>Сидорова Ольга Михайловна</h3>
+                    <div class="doctor-specialty">Невролог</div>
+                    <div class="doctor-experience">
+                        <i class="fas fa-briefcase"></i>
+                        Стаж: 14 лет
+                    </div>
+                    <p class="doctor-description">Специалист по заболеваниям нервной системы. Занимается лечением мигреней, остеохондроза, невралгий.</p>
+                    <div class="doctor-actions">
+                        <a href="{{ url_for('appointment') }}" class="btn-doctor">
+                            <i class="fas fa-calendar-plus"></i>
+                            Записаться на прием
+                        </a>
+                        <div class="doctor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-photo">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h3>Федоров Максим Александрович</h3>
+                    <div class="doctor-specialty">Гастроэнтеролог</div>
+                    <div class="doctor-experience">
+                        <i class="fas fa-briefcase"></i>
+                        Стаж: 18 лет
+                    </div>
+                    <p class="doctor-description">Специалист по заболеваниям желудочно-кишечного тракта. Ведет прием взрослых и детей с 12 лет.</p>
+                    <div class="doctor-actions">
+                        <a href="{{ url_for('appointment') }}" class="btn-doctor">
+                            <i class="fas fa-calendar-plus"></i>
+                            Записаться на прием
+                        </a>
+                        <div class="doctor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-text">4.8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctors-features">
+            <h2>Почему пациенты выбирают наших врачей</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Высокая квалификация</h3>
+                    <p>Все врачи регулярно проходят повышение квалификации и обучение</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Для каждого пациента разрабатывается персональная программа лечения</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Доступное объяснение</h3>
+                    <p>Врачи подробно объясняют диагноз и план лечения простым языком</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-history"></i>
+                    <h3>Контроль лечения</h3>
+                    <p>Врач сопровождает пациента на всех этапах лечения и восстановления</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="appointment-cta">
+            <div class="cta-content">
+                <h2>Запишитесь на прием к специалисту</h2>
+                <p>Выберите удобное время и врача для консультации</p>
+                <a href="{{ url_for('appointment') }}" class="btn-primary btn-large">
+                    <i class="fas fa-calendar-alt"></i>
+                    Записаться онлайн
+                </a>
+                <div class="cta-contacts">
+                    <p>Или позвоните нам: <strong>+7 (495) 123-45-67</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.doctors-hero {
+    background: linear-gradient(rgba(46, 204, 113, 0.9), rgba(39, 174, 96, 0.9));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.doctors-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.doctors-intro {
+    text-align: center;
+    margin: 3rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.doctors-intro h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.specializations {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.specializations h3 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.spec-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.spec-tag {
+    background: #e8f4fc;
+    color: #3498db;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.spec-tag:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+}
+
+.doctor-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-photo {
+    height: 250px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.doctor-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder {
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.photo-placeholder i {
+    font-size: 5rem;
+    color: #bdc3c7;
+}
+
+.doctor-info {
+    padding: 1.5rem;
+}
+
+.doctor-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.doctor-specialty {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.doctor-experience {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.doctor-experience i {
+    color: #f39c12;
+}
+
+.doctor-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.doctor-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-doctor {
+    background: #2ecc71;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-doctor:hover {
+    background: #27ae60;
+    color: white;
+}
+
+.doctor-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.doctor-rating i {
+    color: #f39c12;
+    font-size: 0.9rem;
+}
+
+.rating-text {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.doctors-features {
+    margin: 5rem 0;
+}
+
+.doctors-features h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.appointment-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 4rem 0;
+}
+
+.cta-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-contacts {
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: #e74c3c;
+}
+
+.btn-primary:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .doctors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .spec-tags {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .doctor-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+}
+</style>
+{% endblock %}

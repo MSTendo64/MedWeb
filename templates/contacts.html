@@ -1,0 +1,715 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты - Медицинский центр "Здоровье+"{% endblock %}
+
+{% block content %}
+<section class="contacts-hero">
+    <div class="container">
+        <h1>Контакты</h1>
+        <p>Свяжитесь с нами любым удобным способом</p>
+    </div>
+</section>
+
+<section class="contacts-content">
+    <div class="container">
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <h2>Наши контакты</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Адрес</h3>
+                        <p>г. Москва, ул. Медицинская, д. 15, стр. 1</p>
+                        <p class="contact-note">Рядом со станцией метро "Медицинская"</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Телефоны</h3>
+                        <p><strong>Единый номер:</strong> +7 (495) 123-45-67</p>
+                        <p><strong>Регистратура:</strong> +7 (495) 123-45-68</p>
+                        <p><strong>Скорая помощь (круглосуточно):</strong> +7 (495) 123-45-69</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Электронная почта</h3>
+                        <p><strong>Общие вопросы:</strong> info@healthplus.ru</p>
+                        <p><strong>Запись на прием:</strong> appointment@healthplus.ru</p>
+                        <p><strong>Для врачей:</strong> hr@healthplus.ru</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>График работы</h3>
+                        <p><strong>Понедельник - Пятница:</strong> 8:00 - 20:00</p>
+                        <p><strong>Суббота:</strong> 9:00 - 18:00</p>
+                        <p><strong>Воскресенье:</strong> 9:00 - 16:00</p>
+                        <p><strong>Дежурный врач:</strong> круглосуточно</p>
+                    </div>
+                </div>
+
+                <div class="emergency-contacts">
+                    <h3>Экстренные службы</h3>
+                    <div class="emergency-grid">
+                        <div class="emergency-item">
+                            <i class="fas fa-ambulance"></i>
+                            <p>Скорая помощь</p>
+                            <strong>103</strong>
+                        </div>
+                        <div class="emergency-item">
+                            <i class="fas fa-fire"></i>
+                            <p>Пожарная служба</p>
+                            <strong>101</strong>
+                        </div>
+                        <div class="emergency-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Полиция</p>
+                            <strong>102</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Напишите нам</h2>
+                <p>Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Ваше имя *</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Телефон *</label>
+                            <input type="tel" id="contactPhone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactSubject">Тема обращения</label>
+                        <select id="contactSubject" name="subject">
+                            <option value="">Выберите тему</option>
+                            <option value="appointment">Запись на прием</option>
+                            <option value="question">Вопрос врачу</option>
+                            <option value="feedback">Отзыв</option>
+                            <option value="partnership">Сотрудничество</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Сообщение *</label>
+                        <textarea id="contactMessage" name="message" rows="5" required placeholder="Опишите ваш вопрос или пожелание..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Отправить сообщение
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="form-success" id="formSuccess" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Спасибо за ваше сообщение!</h3>
+                    <p>Мы свяжемся с вами в течение 24 часов.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <h2>Как нас найти</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-info">
+                        <h3>Медицинский центр "Здоровье+"</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Медицинская, д. 15, стр. 1</p>
+                        <p><i class="fas fa-subway"></i> Станция метро "Медицинская" (выход №4)</p>
+                        <p><i class="fas fa-bus"></i> Автобусы: 123, 456, 789 (остановка "Поликлиника")</p>
+                        <div class="parking-info">
+                            <i class="fas fa-parking"></i>
+                            <div>
+                                <strong>Парковка:</strong> Бесплатная парковка на территории клиники на 50 мест
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-image">
+                        <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/20728/korolev/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Королёв</a><a href="https://yandex.ru/maps/10740/mytischi/house/meditsinskaya_ulitsa_15a/Z04YcQBpT0QOQFtvfXVzc3xlYg==/?ll=37.845537%2C55.922066&mode=search&sll=142.729587%2C46.957770&sspn=0.463142%2C0.194400&text=%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D1%83%D0%BB.%20%D0%9C%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%2C%20%D0%B4.%2015&utm_medium=mapframe&utm_source=maps&z=12" style="color:#eee;font-size:12px;position:absolute;top:14px;">Королёв — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=37.845537%2C55.922066&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgo2MTI1NDM0Mzc5EmjQoNC-0YHRgdC40Y8sINCc0L7RgdC60L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQnNGL0YLQuNGJ0LgsINCc0LXQtNC40YbQuNC90YHQutCw0Y8g0YPQu9C40YbQsCwgMTXQkCIKDVQeF0IVMbBfQg%2C%2C&sll=142.729587%2C46.957770&sspn=0.463142%2C0.194400&text=%D0%B3.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D1%83%D0%BB.%20%D0%9C%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%2C%20%D0%B4.%2015&z=12" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                        <div class="map-frame">
+                            
+                           
+                        </div>
+                        <p class="map-note">* Для интеграции реальной карты используйте Яндекс.Карты или Google Maps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="transport-section">
+            <h2>Транспорт и парковка</h2>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <i class="fas fa-subway"></i>
+                    <h3>Метро</h3>
+                    <p>Ближайшая станция - "Медицинская" (выход №4). 5 минут пешком.</p>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-bus"></i>
+                    <h3>Автобус</h3>
+                    <p>Остановка "Поликлиника": автобусы 123, 456, 789.</p>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Автомобиль</h3>
+                    <p>Бесплатная парковка на 50 мест. Въезд с ул. Медицинской.</p>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-wheelchair"></i>
+                    <h3>Для маломобильных</h3>
+                    <p>Пандусы, лифты, специальные парковочные места.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-section">
+            <h2>Обратная связь</h2>
+            <div class="feedback-cards">
+                <div class="feedback-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Кол-центр</h3>
+                    <p>Единый номер для всех вопросов: <strong>+7 (495) 123-45-67</strong></p>
+                    <p>Работает ежедневно с 7:00 до 23:00</p>
+                </div>
+                <div class="feedback-card">
+                    <i class="fas fa-comment-medical"></i>
+                    <h3>Онлайн-консультация</h3>
+                    <p>Задайте вопрос врачу через наш телеграм-бот: <strong>@healthplus_bot</strong></p>
+                </div>
+                <div class="feedback-card">
+                    <i class="fas fa-file-medical-alt"></i>
+                    <h3>Электронная регистратура</h3>
+                    <p>Запись на прием и получение результатов анализов онлайн</p>
+                    <a href="{{ url_for('appointment') }}" class="btn-secondary">Перейти в регистратуру</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.contacts-hero {
+    background: linear-gradient(rgba(155, 89, 182, 0.9), rgba(142, 68, 173, 0.9));
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.contacts-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin: 4rem 0;
+}
+
+.contact-info h2,
+.contact-form-section h2 {
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #3498db;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.contact-details h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.3rem;
+    color: #555;
+}
+
+.contact-note {
+    color: #7f8c8d !important;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.emergency-contacts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #eee;
+}
+
+.emergency-contacts h3 {
+    color: #e74c3c;
+    margin-bottom: 1.5rem;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.emergency-item {
+    text-align: center;
+    padding: 1rem;
+    background: #fff5f5;
+    border-radius: 8px;
+    border: 1px solid #ffdddd;
+}
+
+.emergency-item i {
+    font-size: 2rem;
+    color: #e74c3c;
+    margin-bottom: 0.5rem;
+}
+
+.emergency-item p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.emergency-item strong {
+    font-size: 1.5rem;
+    color: #c0392b;
+}
+
+.contact-form-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.contact-form-section p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.form-actions button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.form-success {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.form-success i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #28a745;
+}
+
+.map-section {
+    margin: 4rem 0;
+}
+
+.map-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+.map-container {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.map-placeholder {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.map-info {
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.map-info h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.map-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #555;
+}
+
+.map-info i {
+    color: #3498db;
+    width: 20px;
+}
+
+.parking-info {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #e8f4fc;
+    border-radius: 4px;
+}
+
+.parking-info i {
+    color: #2ecc71;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+}
+
+.map-image {
+    position: relative;
+}
+
+.map-frame {
+    height: 400px;
+    background: #e0e0e0;
+    position: relative;
+}
+
+.map-mock {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.map-points {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.map-point {
+    position: absolute;
+    transform: translate(-50%, -100%);
+}
+
+.point-marker {
+    width: 40px;
+    height: 40px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.point-marker:hover {
+    transform: scale(1.2);
+}
+
+.point-marker.metro {
+    background: #3498db;
+}
+
+.point-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.map-point:hover .point-label {
+    opacity: 1;
+}
+
+.map-note {
+    padding: 1rem;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    background: #f8f9fa;
+    margin: 0;
+}
+
+.transport-section {
+    margin: 4rem 0;
+}
+
+.transport-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.transport-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.transport-card:hover {
+    transform: translateY(-5px);
+}
+
+.transport-card i {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.transport-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.feedback-section {
+    margin: 4rem 0;
+}
+
+.feedback-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+}
+
+.feedback-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feedback-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card i {
+    font-size: 2.5rem;
+    color: #9b59b6;
+    margin-bottom: 1rem;
+}
+
+.feedback-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.feedback-card p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: #9b59b6;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #8e44ad;
+    color: white;
+}
+
+@media (max-width: 992px) {
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-placeholder {
+        grid-template-columns: 1fr;
+    }
+    
+    .emergency-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            contactForm.style.display = 'none';
+            
+            formSuccess.style.display = 'block';
+            
+            /*
+            const formData = new FormData(contactForm);
+            fetch('/api/contact', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке формы');
+            });
+            */
+        });
+    }
+    
+    const markers = document.querySelectorAll('.point-marker');
+    markers.forEach(marker => {
+        marker.addEventListener('click', function() {
+            this.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 300);
+        });
+    });
+});
+</script>
+{% endblock %}
